@@ -22,16 +22,16 @@ class Solution:
             if c == '(':
                 longest[i] = 0
             else:
-                if i > 0 and s[i-1] == '(':
-                    longest[i] = 2 + (0 if i == 1 else longest[i-2])
-                elif i > 0 and s[i-1] == ')':
-                    index = i - 1 - longest[i-1]
+                if i > 0 and s[i - 1] == '(':
+                    longest[i] = 2 + (0 if i == 1 else longest[i - 2])
+                elif i > 0 and s[i - 1] == ')':
+                    index = i - 1 - longest[i - 1]
                     if index >= 0 and s[index] == '(':
-                        longest[i] = 2 + longest[i-1] + (0 if index == 0 else longest[index-1])
+                        longest[i] = 2 + longest[i - 1] + (0 if index == 0 else longest[index - 1])
 
-        #print(longest)
-        return  0 if len(longest) == 0 else max(longest)
+        # print(longest)
+        return 0 if len(longest) == 0 else max(longest)
 
 
 if __name__ == '__main__':
-    print(Solution().longestValidParentheses( "()(())"))
+    print(Solution().longestValidParentheses("()(())"))
